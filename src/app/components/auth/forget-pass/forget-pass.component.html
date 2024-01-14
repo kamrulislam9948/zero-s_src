@@ -1,0 +1,155 @@
+
+<div class="wrapper">
+
+    <!-- Page Content  -->
+    <div id="content">
+    <div id="schedule_container" class="schedule_container">
+        <div class="shed_contain">
+                <div class="welcome_note">
+                    <a href="#" class="com_logo">
+                        <img alt="loading-img" class="lazyload" src="../assets/GoldsandsGroup.png" data-src="../assets/logoGS.png" data-sizes="auto" />
+                        <noscript> <img src="../assets/logoGS.png" /> </noscript>
+                    </a>
+                    <div class="shin_in_text">CLIENT PORTAL</div>
+                </div>
+                
+                <form class="well form-horizontal mt-5" action=" " method="post"  id="ForgotPass_form">
+                    <fieldset>
+                    
+                 
+                    <div class="welcome_note">
+                        <h6 class="text-white shin_in_text">Forgot your password</h6>
+                    </div>                       
+                    <div class="welcome_note ">
+                        <h6 class="text-white shin_in_text_forgot"><i class="fa-solid fa-lock mr-3"></i>Enter your email address or phone number and we’ll send you a OTP to reset your password.</h6>
+                    </div>
+                    <div class=" p-2 ml-3 text-start">
+                        <div class="text-white phone_email_icon">
+                            <a id="showMail" ng-click="showme=true"><img src="../assets/envelopemail.png" alt=""></a>
+                            &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                            <a id="showPhone" ng-click="showme=false"><img src="../assets/phone.png" alt=""></a>
+                        </div>
+                    </div>
+                    <div class="form-group" id="divEmail" ng-show="showme">
+                        <div class="col-md-12 inputGroupContainer">
+                            <div class="input-group has_prepend">
+                               
+                                <span class="fa-regular fa-envelope form_control_prepend"></span>
+                                <input name="email" placeholder="Enter your email address" class="form-control form-control-sm"  type="text">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group" id="divPhone" ng-show="showme">
+                        <div class="col-md-12 inputGroupContainer">
+                            <div class="input-group has_prepend">                              
+                                <span class="fa-solid fa-phone form_control_prepend"></span>
+                                <input name="phone" placeholder="Enter your phone number" class="form-control form-control-sm"  type="text">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="col-md-12 inputGroupContainer text-center">
+                            <button [routerLink]="['/forget-pass-otp']" type="button" id="showOTP" class="btn btn-sm btn-block" style="background-color: var(--secondary-color);">Continue</button>
+                        </div>
+                    </div>                   
+                    </fieldset>
+                </form>
+                
+                <div class="form-group" id="divAlSignIn">
+                    <div class="col-md-12 inputGroupContainer">
+                        <div class="form-check form-check-inline mb-0 d-flex justify-content-center">
+                            <label class="form-check-label text-white" style="font-size: smaller;" for="acceptTerms">Already have an account? <span><a style="font-size: medium; color:var(--secondary-color)" type="button" href="#" id="alreadySignIn">Sign In</a></span></label>
+                        </div>
+                        </div>
+                </div>
+        </div>
+    </div>
+    </div>
+</div>
+
+<!-- <div class="wrapper">
+    <div id="content">
+        <div id="schedule_container" class="schedule_container">
+            <div class="shed_contain">
+                <div class="welcome_note">
+                    <a href="#" class="com_logo">
+                        <img alt="loading-img" class="lazyload" src="assets/GoldsandsGroup.png"
+                            data-src="assets/logoGS.png" data-sizes="auto" />
+                        <noscript> <img src="assets/logoGS.png" /> </noscript>
+                    </a>
+                    <div class="shin_in_text">CLIENT PORTAL</div>
+                </div>
+
+                <form class="well form-horizontal" action=" " method="post" id="ForgotPass_form">
+                    <fieldset>
+
+
+
+                        <div class="welcome_note p-2">
+                            <h6 class="text-white shin_in_text" style="font-size: large;">Forgot your password</h6>
+                        </div>
+                        <div class="welcome_note p-2">
+                            <h6 class="text-white shin_in_text_forgot"><i class="fa-solid fa-lock mr-3"></i>Enter your
+                                email address or phone number and we’ll send you a OTP to reset your password.</h6>
+                        </div>
+
+
+
+                        <div class=" p-2 ml-3 text-start">
+                            <div class="text-white phone_email_icon">
+                                <a id="showMail" ng-click="showme=true" type="button" ><img src="assets/envelopemail.png" alt=""></a>
+                                &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                                <a id="showPhone" ng-click="showme=false" type="button" ><img src="assets/phone.png" alt=""></a>
+                            </div>
+                        </div>
+                        <div class="form-group" id="divEmail" ng-show="showme">
+                            <div class="col-md-12 inputGroupContainer">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon2" >
+                                            <i class="fa-regular fa-envelope"></i>
+                                        </span>
+                                    </div>
+                                    <input name="email" placeholder="Enter your email address"
+                                        class="form-control form-control-sm" type="text" >
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group" id="divPhone" ng-hide="showme">
+                            <div class="col-md-12 inputGroupContainer">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon2" >
+                                            <i class="fa-solid fa-phone"></i>
+                                        </span>
+                                    </div>
+                                    <input name="phone" placeholder="Enter your phone number"
+                                        class="form-control form-control-sm" type="text">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-12 inputGroupContainer text-center">
+                                <a [routerLink]="['/forget-pass-otp']" type="button" id="showOTP" class="btn btn-sm btn-block"
+                                    style="background-color: var(--secondary-color);">Continue</a>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+
+                <div class="form-group" id="divAlSignIn">
+                    <div class="col-md-12 inputGroupContainer">
+                        <div class="form-check form-check-inline mb-0 d-md-flex justify-content-center">
+                            <label class="form-check-label text-white" style="font-size: smaller;"
+                                for="acceptTerms">Already have an account? <span><a
+                                        style="font-size: medium; color:var(--secondary-color)" type="button"
+                                        [routerLink]="['/login']" id="alreadySignIn"> Sign In</a></span></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->

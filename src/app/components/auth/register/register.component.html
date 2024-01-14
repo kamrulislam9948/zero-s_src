@@ -1,0 +1,261 @@
+<div class="wrapper">
+    <!-- Page Content  -->
+    <div id="content">
+    <div id="schedule_container" class="schedule_container">
+        <div class="shed_contain">
+                <div class="welcome_note">
+                    <a href="#" class="com_logo">
+                        <img alt="loading-img" class="lazyload" src="../assets/GoldsandsGroup.png" data-src="../assets/logoGS.png" data-sizes="auto" />
+                        <noscript> <img src="../assets/logoGS.png" /> </noscript>
+                    </a>
+                    <div class="shin_in_text">CLIENT PORTAL</div>
+                </div>
+                <div class="button__group d-md-flex justify-content-center align-items-center" id="buttonGroup">
+                    <a [routerLink]="['/register']" type="button" class="sign_In_Up" id="signUpShow">Sign Up</a>
+                    <a [routerLink]="['/login']" type="button" class="sign_In_Up" id="signInShow">Sign In</a>
+                </div>
+                <form class="well form-horizontal" #registerForm="ngForm" (ngSubmit)="register()" id="SignUp_form">
+                    <fieldset>
+                    <div class="form-group">                        
+                        <div class="col-md-12 inputGroupContainer">
+                        <div class="input-group has_prepend">                           
+                            <span class="fa-regular fa-user form_control_prepend"></span>
+                            <input type="text" name="username" [(ngModel)]="data.username" #username="ngModel" required placeholder="Full Name" class="form-control form-control-sm">
+                        </div>
+                        </div>
+                    </div>                 
+                                        
+                    <div class="form-group">
+                        <div class="col-md-12 inputGroupContainer">
+                            <div class="input-group has_prepend">                          
+                                <span class="fa-regular fa-envelope form_control_prepend"></span>
+                                <input name="email" [(ngModel)]="data.email" #email="ngModel" required email placeholder="Email" class="form-control form-control-sm">
+                            </div>
+                        </div>
+                    </div>
+                   
+                    <div class="form-group">
+                        <div class="col-md-12 inputGroupContainer">
+                            <div class="input-group has_prepend">                          
+                                <span class="fa-regular fa-envelope form_control_prepend"></span>
+                                <input name="phoneNumber" [(ngModel)]="data.phoneNumber" #phoneNumber="ngModel" required phoneNumber placeholder="Phone" class="form-control form-control-sm">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-12 inputGroupContainer">
+                          <div class="input-group has_prepend">
+                            <span class="fa-solid fa-lock form_control_prepend" id="basic-addon2"></span>
+                            <input [type]="type" name="password" [(ngModel)]="data.password" #password="ngModel" required placeholder="Password" class="form-control form-control-sm">
+                            <div class="input-group-append">
+                              <a type="button" (click)="hideShowPass()"><i class="fa {{eyeIcon}}"></i></a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div class="form-group">
+                        <div class="col-md-12 inputGroupContainer">
+                          <div class="input-group has_prepend">
+                            <span class="fa-solid fa-lock form_control_prepend" id="basic-addon2"></span>
+                            <input [type]="type" name="confirmPassword" [(ngModel)]="data.confirmPassword" #confirmPassword="ngModel" required placeholder="Confirm Password" class="form-control form-control-sm">
+                            <div class="input-group-append">
+                              <a type="button" (click)="hideShowPass2()"></a>
+                            </div>
+                          </div>
+                        </div>
+                        <h5 *ngIf="passwordMatchError" style="color: red;">{{ passwordMatchError }}</h5>
+                        <h5 style="color: white;">*Use at least 6 digits for the password</h5>
+                      </div>
+
+
+                    <div class="form-group">
+                        <div class="col-md-12 inputGroupContainer">
+                            <div class="form-check form-check-inline mb-0 ml-4">
+                                <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="acceptTerms"
+                                    value="option1" />
+                                <label class="form-check-label text-white" style="font-size: smaller;" for="acceptTerms">Stay sign in</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-12 inputGroupContainer text-center">
+                            <button type="submit" id="signUpToSignIn"  style="background-color: var(--secondary-color);">Sign Up</button>
+                        </div>
+                    </div>
+
+                    <div class="welcome_note">
+                    <h6 class="text-white shin_in_text">Sign up with</h6>
+                    <div id="g_id_onload"
+                                data-client_id="847336527526-up6n2lv2vhn5gnrt4inm0ce7qkj7otte.apps.googleusercontent.com"
+                                data-context="signin"
+                                data-ux_mode="redirect"
+                                data-login_uri="http://localhost:4200//home"
+                                data-nonce=""
+                                data-auto_prompt="false">
+                            </div>
+                       
+                            <div class="g_id_signin"
+                                    data-type="standard"
+                                    data-shape="pill"
+                                    data-theme="outline"
+                                    data-text="signin_with"
+                                    data-size="large"
+                                    data-logo_alignment="left">
+                            </div>
+
+                            <div class="logo_goo d-md-flex mt-2">                                                               
+                                <!-- <div id="google-btn" class="google-btn"></div>                                -->
+                                    <button *ngIf="!loggedIn" (click)="signInWithFB()" class="btn btn-outline-primary" style="width: 210px; height: 40px; border-radius: 20px;"><i class="fa-brands fa-facebook-f"></i> Sign in with Facebook</button>
+                            </div>
+                    </div>
+                    </fieldset>
+                </form>
+        </div>
+    </div>
+    </div>
+</div>
+
+<!-- 
+<div class="wrapper">
+    <div id="content">
+        <div id="schedule_container" class="schedule_container">
+            <div class="shed_contain">
+                <div class="welcome_note">
+                    <a href="#" class="com_logo">
+                        <img alt="loading-img" class="lazyload" src="assets/GoldsandsGroup.png"
+                            data-src="assets/logoGS.png" data-sizes="auto" />
+                        <noscript> <img src="assets/logoGS.png" /> </noscript>
+                    </a>
+                    <div class="shin_in_text">CLIENT PORTAL</div>
+                </div>
+                <div class="button__group d-md-flex justify-content-center align-items-center" id="buttonGroup">
+                    <a [routerLink]="['/register']" type="button" class="sign_In_Up" id="signUpShow">Sign Up</a>
+                    <a [routerLink]="['/login']" type="button" class="sign_In_Up" id="signInShow">Sign In</a>
+                </div>
+                <form class="well form-horizontal" #registerForm="ngForm" (ngSubmit)="register()" id="SignUp_form">
+                    <fieldset>
+                        <div class="form-group">
+                            <div class="col-md-12 inputGroupContainer">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon1"><i
+                                                class="fa-regular fa-user"></i></span>
+                                    </div>
+                                    <input type="text" name="username" [(ngModel)]="data.username" #username="ngModel"
+                                        required placeholder="Full Name" class="form-control form-control-sm">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-12 inputGroupContainer">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon2"><i
+                                                class="fa-regular fa-envelope"></i></span>
+                                    </div>
+                                    <input name="email" [(ngModel)]="data.email" #email="ngModel" required email
+                                        placeholder="Email" class="form-control form-control-sm">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-12 inputGroupContainer">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon2"><i
+                                                class="fa-solid fa-phone"></i></span>
+                                    </div>
+                                    <input name="phoneNumber" [(ngModel)]="data.phoneNumber" #phoneNumber="ngModel"
+                                        required phoneNumber placeholder="Mobile No."
+                                        class="form-control form-control-sm">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-12 inputGroupContainer">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon2"><i
+                                                class="fa-solid fa-lock"></i></span>
+                                    </div>
+                                    <input [type]="type" name="password" [(ngModel)]="data.password" #password="ngModel"
+                                        required placeholder="Password" class="form-control form-control-sm">
+                                    <div class="input-group-append">
+                                        <button type="button" (click)="hideShowPass()"><i class="fa {{eyeIcon}}"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-12 inputGroupContainer">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon2"><i
+                                                class="fa-solid fa-lock"></i></span>
+                                    </div>
+                                    <input [type]="type2" name="confirmPassword" [(ngModel)]="data.confirmPassword"
+                                        #confirmPassword="ngModel" required placeholder="Confirm Password"
+                                        class="form-control form-control-sm">
+                                    <div class="input-group-append">
+                                        <button type="button" (click)="hideShowPass2()"><i class="fa {{eyeIcon2}}"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+              
+                        <div class="form-group">
+                            <div class="col-md-12 inputGroupContainer text-center">
+                                <button type="submit" id="signUpToSignIn" class="btn btn-sm btn-block" style="background-color: var(--secondary-color);">Sign Up</button>
+                            </div>
+                        </div>
+                        <div class="welcome_note">
+                            <h6 class="text-white shin_in_text">Sign in with</h6>                        
+
+                            <div id="g_id_onload"
+                                data-client_id="847336527526-up6n2lv2vhn5gnrt4inm0ce7qkj7otte.apps.googleusercontent.com"
+                                data-context="signin"
+                                data-ux_mode="redirect"
+                                data-login_uri="http://localhost:4200//home"
+                                data-nonce=""
+                                data-auto_prompt="false">
+                            </div>
+                       
+                            <div class="g_id_signin"
+                                    data-type="standard"
+                                    data-shape="pill"
+                                    data-theme="outline"
+                                    data-text="signin_with"
+                                    data-size="large"
+                                    data-logo_alignment="left">
+                            </div>
+
+                            <div class="logo_goo d-md-flex mt-2">                                                               
+                                    <button *ngIf="!loggedIn" (click)="signInWithFB()" class="btn btn-outline-primary" style="width: 210px; height: 40px; border-radius: 20px;"><i class="fa-brands fa-facebook-f"></i> Sign in with Facebook</button>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- {{registerForm.value|json}}
+{{registerForm.valid}} -->
+

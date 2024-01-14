@@ -1,0 +1,55 @@
+<div class="section_container" style="margin-top: 60px;">
+    <div class="row p-0">
+        <div class="col-sm-12">
+            <div class="d-flex justify-content-center align-items-center">
+                <div class="card">
+                    <div class="upper"></div>
+                    <div class="user text-center">
+                        <div class="profile">
+                            <img [src]="userProfile" class="rounded-circle" width="80">
+                            <button class="pimg_edit_button"><i class="fa-solid fa-pencil"></i></button>
+                        </div>
+                    </div>
+
+                    <div class="text-center profile_details">
+
+                        <h3 class="mt-0" style="font-weight: 600;">{{authService.user?.username}}  {{name}}</h3>
+
+                        <button (click)="toggleButtons()" class="btn follow btn-outline-primary mt-2" [hidden]="saveButtonVisible">Edit Profile</button>
+                        <button (click)="saveProfile()" class="btn follow btn-primary mt-2" [hidden]="!saveButtonVisible">Save Profile</button>
+
+
+                        <div class="form_card  mt-4 px-4">
+                            <div class="form_container" style="margin-bottom: 20px;">
+                                <form class="contact-form row">
+                                    <div class="form-field col-lg-6">
+                                        <input id="name" class="input-text js-input" type="text"  value={{name}} placeholder="Full name" required>
+                                    </div>
+                                    <div class="form-field col-lg-6 ">
+                                        <input id="email" class="input-text js-input" type="email" value={{email}} placeholder="Email" required>
+                                    </div>
+                                    <div class="form-field col-lg-4 ">
+                                        <input id="mobile" class="input-text js-input" type="text" value={{authService.user?.phoneNumber}}  placeholder="Mobile" required>
+                                    </div>
+                                    <div class="form-field col-lg-4 ">
+                                        <input id="clientDOB" class="input-text js-input" type="date" value={{authService.user?.birthDate}} placeholder="Date of Birth" required>
+                                    </div>
+                                    <div class="form-field col-lg-4 ">
+                                        <input id="phone" class="input-text js-input" type="text" value={{authService.user?.gender}} placeholder="Gender" required>
+                                    </div>
+                                    <div class="form-field col-lg-12">
+                                        <input id="address" class="input-text js-input" type="text" value={{authService.user?.address}} placeholder="Address" required>
+                                    </div>
+                                    <div class="form-field col-lg-12">
+                                        <input id="message" class="input-text js-input" type="text" value={{authService.user?.aboutMe}} placeholder="About me" required>
+                                    </div>
+                                    <a (click)="signOut()" class="btn btn-primary" style="width: 120;cursor: pointer;"> Log Out</a>
+                                </form>
+                            </div>                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

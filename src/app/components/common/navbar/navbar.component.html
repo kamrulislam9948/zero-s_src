@@ -1,0 +1,127 @@
+
+<div class="wrapper">
+    <nav id="sidebar" [ngClass]="{'collapsed': isSidebarCollapsed}" >
+      <div class="sidebar-header">
+          <a [routerLink]="['/ggc-home/profile']" class="nav-link btn d-md-flex justify-content-start align-items-center user_img">
+              <img alt="loading-img" class="lazyload mr-2" src="../assets/GoldsandsGroup.png" data-src="assets/userIcon.png" data-sizes="auto" />
+              <noscript> <img src="assets/userIcon.png"/></noscript>
+              <span class="text-white;" style="font-weight: bold ;">{{authService.userName}}</span>
+          </a>
+      </div>
+
+      <ul class="list-unstyled components">
+            <li class="active">
+                <a [routerLink]="['/ggc-home/admin-dashboard']">Dashboard</a>           
+            </li>
+            <li class="">
+              <a href="#homeSubmenu"  data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Client-Ledger</a>
+              <ul class="collapse list-unstyled" id="homeSubmenu">
+                  <li>
+                      <a [routerLink]="['/ggc-home/client-ledger-list']">Client-Ledger-View</a>
+                  </li>
+                  <li>
+                      <a >Client-Ledger-Add</a>
+                  </li>
+                  <li>
+                      <a >Client-Ledger-Edit</a>
+                  </li>
+              </ul>
+            </li>
+         
+          <li>
+              <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
+              <ul class="collapse list-unstyled" id="pageSubmenu">
+                  <li>
+                      <a >Page 1</a>
+                  </li>
+                  <li>
+                      <a >Page 2</a>
+                  </li>
+                  <li>
+                      <a >Page 3</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a >About</a>
+        </li>
+          <li>
+              <a >Portfolio</a>
+          </li>
+          <li>
+              <a >Contact</a>
+          </li>
+      </ul>
+
+      <ul class="list-unstyled CTAs">
+          <li>
+              <a href="https://bootstrapious.com/tutorial/files/sidebar.zip" class="download">Download source</a>
+          </li>
+          <li>
+              <a href="https://bootstrapious.com/p/bootstrap-sidebar" class="article">Back to article</a>
+          </li>
+      </ul>
+  </nav>
+
+
+    <div id="main_content">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <button type="button" id="sidebarCollapse" class="btn btn-info" (click)="toggleSidebar()">
+                    <i class="fas fa-align-left"></i>
+                </button>
+                <a class="nav-link com__logo" >
+                   <a href="https://goldsandsgroup.com/"><img  alt="loading-img" class="lazyload" src="assets/GoldsandsGroup.png" data-src="assets/logo.png" data-sizes="auto" />
+                    <noscript> <img src="assets/logo.png" /> </noscript></a> 
+                </a>
+                <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-align-justify"></i>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link text-center" >Call For Help<br><span class="text-primary">01877715333</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link notify_img" >
+                                <img alt="loading-img" class="lazyload" src="assets/GoldsandsGroup.png" data-src="../assets/messageIcon.png" data-sizes="auto" />
+                                <noscript> <img src="assets/messageIcon.png" /> </noscript>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link notify_img" >
+                                <img alt="loading-img" class="lazyload" src="assets/GoldsandsGroup.png" data-src="../assets/notification.png" data-sizes="auto" />
+                                <noscript> <img src="assets/notification.png" /> </noscript>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a [routerLink]="['/ggc-home/profile']" class="nav-link btn btn-info d-md-flex justify-content-start align-items-center user_img">
+                             
+                                <img alt="loading-img"  class="lazyload mr-2" src="assets/GoldsandsGroup.png" data-src="assets/userIcon.png" data-sizes="auto"
+                                style="margin: 0 8px 0 8px;" /> <span class="text-light" style="font-weight: bold;"> {{authService.userName}} </span>
+                                <noscript> <img src="assets/userIcon.png"/></noscript>                                                              
+                            </a>
+                                                            
+                        </li>
+                        <li class="nav-item" style="align-items: center; margin-left: 5px;margin-top: 15px;">
+                            <a type="button" [routerLink]="['/login']" *ngIf="!isLoggedIn"  >
+                                <i class="bi bi-box-arrow-in-left"></i>Login
+                            </a>
+                              <a type="button"  (click)="logout()" *ngIf="isLoggedIn">                                
+                                <i class="bi bi-box-arrow-in-right"></i> Logout
+                            </a> 
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div>
+          <div class="container-fluid-main" >        
+            <router-outlet></router-outlet>
+          </div>
+        </div>                         
+    </div>
+</div>
+
+

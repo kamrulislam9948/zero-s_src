@@ -1,0 +1,100 @@
+<div class="wrapper">
+    <!-- Page Content  -->
+    <div id="content">
+        <div id="schedule_container" class="schedule_container">
+            <div class="shed_contain">
+                <div class="welcome_note">
+                    <a href="#" class="com_logo">
+                        <img alt="loading-img" class="lazyload" src="assets/GoldsandsGroup.png"
+                            data-src="assets/logoGS.png" data-sizes="auto" />
+                        <noscript> <img src="assets/logoGS.png" /> </noscript>
+                    </a>
+                    <div class="shin_in_text">CLIENT PORTAL</div>
+                </div>
+
+                <div class="button__group d-md-flex justify-content-center align-items-center" id="buttonGroup">
+                    <a [routerLink]="['/register']"  class="sign_In_Up" id="signUpShow">Sign Up</a>
+                    <a [routerLink]="['/login']"  class="sign_In_Up" id="signInShow">Sign In</a>
+                </div>
+
+                <form class="well form-horizontal" #loginForm="ngForm" (ngSubmit)="login(loginForm)" id="SignIn_form">
+                    <fieldset>
+                        <div class="form-group">
+                            <div class="col-md-12 inputGroupContainer">
+                                <div class="input-group has_prepend">                          
+                                    <span class="fa-regular fa-envelope form_control_prepend"></span>
+                                    <input name="identifier" [(ngModel)]="data.identifier" #identifier="ngModel" required identifier placeholder="Enter your email or phone" class="form-control form-control-sm">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <!-- Your existing code... -->
+                            
+                            <div class="col-md-12 inputGroupContainer">
+                              <div class="input-group has_prepend">
+                                <span class="fa-solid fa-lock form_control_prepend" id="basic-addon2"></span>
+                                <input [type]="type" name="password" [(ngModel)]="data.password" #password="ngModel" required placeholder="Password" class="form-control form-control-sm">
+                                <div class="input-group-append">
+                                  <a type="button" (click)="hideShowPass()"><i class="fa {{eyeIcon}}"></i></a>
+                                </div>
+                              </div>
+                            </div>
+                            <h5 *ngIf="publicLoginService.passwordValidationError" style="color: red;">{{ publicLoginService.passwordValidationError }}</h5>
+                          </div>
+                        <div class="form-group">
+                            <div class="col-md-12 inputGroupContainer">
+                                <div class="d-md-flex justify-content-end  mb-2">
+                                    <div class="form-check form-check-inline mb-0 ">
+                                        <a [routerLink]="['/forget-pass']" type="button" id="forgotPass"class="form-check-label cursor-pointer"
+                                            style="font-size: smaller; color:#FB6B11;">Forgot Password?</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-12 inputGroupContainer text-center">
+                                <button  type="submit" class="btn btn-sm btn-block"
+                                    style="background-color: var(--secondary-color);">Sign In</button>
+                            </div>
+                        </div>
+                        <div class="welcome_note">
+                            <h6 class="text-white shin_in_text">Sign in with</h6>                        
+
+                            <!-- <div id="g_id_onload"
+                                data-client_id="847336527526-up6n2lv2vhn5gnrt4inm0ce7qkj7otte.apps.googleusercontent.com"
+                                data-context="signin"
+                                data-ux_mode="redirect"
+                                data-login_uri="http://localhost:4200//ggc-home"
+                                data-nonce=""
+                                data-auto_prompt="false">
+                            </div>
+                       
+                            <div class="g_id_signin"
+                                    data-type="standard"
+                                    data-shape="pill"
+                                    data-theme="outline"
+                                    data-text="signin_with"
+                                    data-size="large"
+                                    data-logo_alignment="left">
+                            </div> -->
+                            <div id="google-btn" ></div>
+
+                            <div class="logo_goo d-md-flex mt-2">                                                               
+                                <!-- <button *ngIf="!loggedIn" (click)="signInWithFB()" class="btn btn-outline-primary" style="width: 210px; height: 40px; border-radius: 20px;"><i class="fa-brands fa-facebook-f"></i> Sign in with Facebook</button> -->
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <div *ngIf="loggedIn" style="display: flex; justify-content: center;">
+    <img src="{{user.response.picture.data.url}}" alt="Profile Picture">
+    <div style="display: flex; justify-content: center;">
+      <h4>{{user.name}}</h4>
+      <h4 *ngIf="user.email">{{user.email}}</h4>
+    </div>
+</div> -->
